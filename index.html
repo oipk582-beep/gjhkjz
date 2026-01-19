@@ -179,44 +179,34 @@ function playMusic(){
 
 
 
-<script> 
-  // ===== ตั้งค่า =====
-  const FAN_NAME = "นีม";
-  const PASSWORD = "1234567";
+<script>
+const FAN_NAME = "บีม";
+const PASSWORD = "1234567";
 
-  const message =
-    "รักนะ ❤️\n" +
-    "ขอบคุณที่อยู่ข้างกันมาตลอด\n" +
-    "ไม่ว่าอะไรจะเกิดขึ้น\n" +
-    "เราจะจับมือกันแบบนี้ตลอดไป 💕";
+const music = document.getElementById("music");
 
-  // ===== ดึง element =====
-  const fanNameEl = document.getElementById("fanName");
-  const fanLockEl = document.getElementById("fanLock");
-  const box = document.getElementById("box");
-  const music = document.getElementById("music");
-    function playMusic() {
-  music.volume = 0.8;
-  music.play();
+function playMusic(){
+  music.volume = 0.6;
+  music.play().catch(()=>{});
 }
 
+function unlock(){
+  const pass = document.getElementById("password").value;
 
-  fanNameEl.innerText = FAN_NAME;
-  fanLockEl.innerText = FAN_NAME;
+  if(pass === PASSWORD){
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("content").style.display = "block";
 
-  function unlock() {
-    const pass = document.getElementById("password").value;
+    document.querySelectorAll("#fanName").forEach(el => {
+      el.innerText = FAN_NAME;
+    });
 
-    if (pass === PASSWORD) {
-        document.getElementById("lock").style.display = "none";
-        document.getElementById("content").style.display = "block";
-
-        music.volume = 0.6;
-        music.play().catch(() => {});
-    } else {
-        alert("รหัสไม่ถูกนะ ❤️");
-    }
+    playMusic(); // ✅ มือถือเล่นแน่นอน
+  } else {
+    alert("รหัสไม่ถูกนะ 💔");
+  }
 }
+</script>
 
 
   function startTyping() {
@@ -230,6 +220,6 @@ function playMusic(){
     }, 80);
   }
 </script>
-
-</body>
+<audio id="music" src="love.mp3" loop></audio>
+</body 
 </html>
