@@ -123,7 +123,12 @@ button{
     </div>
 </div>
 
-<audio id="music" src="love.mp3" loop preload="auto"></audio>
+<audio id="music" src="love.mp3" loop></audio>
+
+<button onclick="playMusic()" class="play-btn">
+💖 เปิดเพลงรัก 💖
+</button>
+
 
 
 <script>
@@ -142,6 +147,11 @@ button{
   const fanLockEl = document.getElementById("fanLock");
   const box = document.getElementById("box");
   const music = document.getElementById("music");
+    function playMusic() {
+  music.volume = 0.8;
+  music.play();
+}
+
 
   fanNameEl.innerText = FAN_NAME;
   fanLockEl.innerText = FAN_NAME;
