@@ -145,16 +145,17 @@ let index = 0;
 
 // ===== ฟังก์ชัน =====
 function unlock(){
+    function unlock(){
     const pass = document.getElementById("password").value;
     if(pass === PASSWORD){
-        document.getElementById("lock").style.display="none";
-        document.getElementById("content").style.display="block";
-        music.play();
-        setInterval(createHeart,300);
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        music.play(); // 🎵 เล่นเพลงตรงนี้
     }else{
-        alert("รหัสไม่ถูกนะ 💔");
+        alert("รหัสผิดนะ 😝");
     }
 }
+
 
 function startTyping(){
     box.innerText="";
