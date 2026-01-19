@@ -168,21 +168,12 @@ button{
 </style>
 
 
- <script>
-const music = document.getElementById("music");
-
-function playMusic(){
-  music.volume = 0.8;
-  music.play();
-}
-</script>
-
-
+<audio id="music" src="love.mp3" loop playsinline></audio>
 
 <script>
-const FAN_NAME = "บีม";
+const box = document.getElementById("box");
+const FAN_NAME = "นีม";
 const PASSWORD = "1234567";
-
 const music = document.getElementById("music");
 
 function playMusic(){
@@ -196,17 +187,13 @@ function unlock(){
   if(pass === PASSWORD){
     document.getElementById("lock").style.display = "none";
     document.getElementById("content").style.display = "block";
-
-    document.querySelectorAll("#fanName").forEach(el => {
-      el.innerText = FAN_NAME;
-    });
-
-    playMusic(); // ✅ มือถือเล่นแน่นอน
+    playMusic();
   } else {
-    alert("รหัสไม่ถูกนะ 💔");
+    alert("รหัสไม่ถูกนะ ❤️");
   }
 }
 </script>
+
 
 
   function startTyping() {
