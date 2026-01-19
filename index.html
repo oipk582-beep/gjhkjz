@@ -149,13 +149,16 @@ button{
     const pass = document.getElementById("password").value;
 
     if (pass === PASSWORD) {
-      document.getElementById("lock").style.display = "none";
-      document.getElementById("content").style.display = "block";
-      music.play();
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("content").style.display = "block";
+
+        music.volume = 0.6;
+        music.play().catch(() => {});
     } else {
-      alert("รหัสไม่ถูกนะ 💔");
+        alert("รหัสไม่ถูกนะ ❤️");
     }
-  }
+}
+
 
   function startTyping() {
     box.innerText = "";
