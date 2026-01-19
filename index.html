@@ -172,9 +172,23 @@ button{
 
 <script>
 const box = document.getElementById("box");
+const music = document.getElementById("music");
+
 const FAN_NAME = "นีม";
 const PASSWORD = "1234567";
-const music = document.getElementById("music");
+
+const message = "สุขสันต์วันครบรอบนะ รักเธอมาก ๆ อยู่ด้วยกันไปนาน ๆ เลย ❤️";
+
+function startTyping(){
+  box.innerText = "";
+  let i = 0;
+  const typing = setInterval(() => {
+    box.innerText += message[i];
+    i++;
+    if (i >= message.length) clearInterval(typing);
+  }, 80);
+}
+
 
 function playMusic(){
   music.volume = 0.6;
@@ -183,18 +197,14 @@ function playMusic(){
 
 function unlock(){
   const pass = document.getElementById("password").value;
-
   if(pass === PASSWORD){
     document.getElementById("lock").style.display = "none";
     document.getElementById("content").style.display = "block";
-    playMusic();
   } else {
-    alert("รหัสไม่ถูกนะ ❤️");
+    alert("รหัสไม่ถูกต้อง ❤️");
   }
 }
 </script>
-
-
 
   function startTyping() {
     box.innerText = "";
