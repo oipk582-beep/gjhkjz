@@ -125,67 +125,48 @@ button{
 
 <audio id="music" src="love.mp3" loop></audio>
 
-<script> 
-// ===== ตั้งค่า =====
-const FAN_NAME = "นีม";
-const PASSWORD = "123456";
+<script>
+  // ===== ตั้งค่า =====
+  const FAN_NAME = "นีม";
+  const PASSWORD = "1234567";
 
-const message =
-"รักนะ 💖\n"+
-"ขอบคุณที่อยู่ข้างกันมาตลอด\n"+
-"ทุกวันที่มีเธอ โลกมันน่ารักขึ้นจริง ๆ\n"+
-"สัญญาว่าจะดูแลกันแบบนี้ตลอดไป\n"+
-"รักที่สุดเลย 🥰";
+  const message =
+    "รักนะ ❤️\n" +
+    "ขอบคุณที่อยู่ข้างกันมาตลอด\n" +
+    "ไม่ว่าอะไรจะเกิดขึ้น\n" +
+    "เราจะจับมือกันแบบนี้ตลอดไป 💕";
 
-// ===== ตัวแปร =====
-const fanName = document.getElementById("fanName");
-const fanLock = document.getElementById("fanLock");
-const box = document.getElementById("box");
-const music = document.getElementById("music");
+  // ===== ดึง element =====
+  const fanNameEl = document.getElementById("fanName");
+  const fanLockEl = document.getElementById("fanLock");
+  const box = document.getElementById("box");
+  const music = document.getElementById("music");
 
-fanName.innerText = FAN_NAME;
-fanLock.innerText = FAN_NAME;
+  fanNameEl.innerText = FAN_NAME;
+  fanLockEl.innerText = FAN_NAME;
 
-let index = 0;
-
-// ===== ฟังก์ชัน =====
-function unlock(){
-    function unlock(){
+  function unlock() {
     const pass = document.getElementById("password").value;
-    if(pass === PASSWORD){
-        document.getElementById("lock").style.display = "none";
-        document.getElementById("content").style.display = "block";
-        music.play(); // 🎵 เล่นเพลงตรงนี้
-    }else{
-        alert("รหัสผิดนะ 😝");
+
+    if (pass === PASSWORD) {
+      document.getElementById("lock").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      music.play();
+    } else {
+      alert("รหัสไม่ถูกนะ 💔");
     }
-}
+  }
 
+  function startTyping() {
+    box.innerText = "";
+    let i = 0;
 
-function startTyping(){
-    box.innerText="";
-    index=0;
-    typing();
-}
-
-function typing(){
-    if(index < message.length){
-        box.innerText += message.charAt(index);
-        index++;
-        setTimeout(typing,60);
-    }
-}
-
-function createHeart(){
-    const heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerText="❤";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=(Math.random()*20+15)+"px";
-    heart.style.animationDuration=(Math.random()*3+4)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),7000);
-}
+    const typing = setInterval(() => {
+      box.innerText += message[i];
+      i++;
+      if (i >= message.length) clearInterval(typing);
+    }, 80);
+  }
 </script>
 
 </body>
